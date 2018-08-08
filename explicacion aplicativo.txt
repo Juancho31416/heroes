@@ -1,0 +1,212 @@
+Este aplicativo esta diseñada a tres capas 
+1.modelos
+2.servicios
+3.vistas y componentes
+
+1. en esta capa se establecieron modelos de entidad para los diferentes tipos manejados 
+
+-comics
+-characters 
+-Marvel
+
+.comic tiene una configuracion que permite traer las caracteristicas de los comics de la api para ser manejados dentro del servicio y la aplicacion
+
+.characters es una entidad que permite tener las caracteristicas de los personajes para ser manejados dentro del servicio y la aplicación 
+
+
+.marvel es una entidad general que sirve para mapear las respuestas de la api en los servicios 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+2. Servicios
+
+en esta capa estan los servicios especificos para la api , el modal , y el servicio de storage de información 
+en estos se hace el bridge de datos  y los componentes .
+
+-dataStorage.Service.ts
+-marvel.service.ts
+-modal.service.ts
+
+
+
+dataStorage.service
+
+export class WebStorageService
+
+Este servicio permite el manejo de la información guardada en webstorage y localstorage 
+
+metodos 
+
+get(key: string)
+
+set(key: string, value: any)
+
+remove(key: string)
+
+clear()
+
+
+extendables 
+
+
+export class LocalStorageService
+
+export class SessionStorageService
+
+
+
+
+
+marvel.service 
+
+export class MarvelService
+
+metodos
+
+getHash(timeStamp: string)
+
+getTimeStamp(): string
+
+getCharacters(limit: number = 10, prefix: string = null)
+
+getComics(limit: number = 10, id: number = null)
+
+
+modal.service 
+
+export class ModalService
+
+metodos
+
+
+add(modal: any)
+
+remove(id: string)
+
+open(id: string, comicid:number, comics: comic[])
+
+close(id: string)
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+3. Componentes 
+
+APP.COMPONENT 
+
+export class AppComponent
+
+metodos
+
+ngAfterViewInit()
+
+async ngOnInit()
+
+
+async refreshList()
+
+
+async findcomics(id)
+
+setFavourites(comic)
+
+async getFavourites()
+
+deleteFavourites(comic)
+
+openModal(id: string,comicid:number)
+
+closeModal(id: string) 
+ 
+addRandomComics()
+
+
+MODAL.COMPONENT
+
+export class ModalComponent
+
+
+Metodos 
+
+ngOnInit()
+
+ngOnDestroy()
+
+open(addEventListener ,any )
+
+close()
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+MODELOS 
+
+CHARACTER.MODEL
+
+export class Character {
+    public id: number;
+    public name: string;
+    public description: string;
+    public thumbnail: Thumbnail;
+}
+
+export class Thumbnail {
+    public path: string;
+    public extension: string;
+}
+
+COMIC.MODEL
+
+export class comic {
+    public id: number;
+    public title: string;
+    public description: string;
+    public thumbnail: Thumbnail;
+    public code : number;
+    public prices : price[];
+
+}
+export class Thumbnail {
+    public path: string;
+    public extension: string;
+}
+
+export class price {
+    public type : string;
+    public price : number;
+}
+
+
+MARVEL.MODEL
+
+export abstract class MarvelResponse<T> {
+    public code : number;
+    public status : string;
+    public attributionHTML : string;
+    public data : MarvelList<T>;
+}
+
+export class MarvelList<T> {
+    public offset : number;
+    public limit : number;
+    public total : number;
+    public count : number;
+    public results : T[];
+}
+
+
+ORIGIN.MODEL
+
+export class Origin {
+    public origin : string;
+    public headers : Headers;
+}
+
+export class Headers {
+    public Accept: string;
+}
+
+
+
+
+
