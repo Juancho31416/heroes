@@ -1,0 +1,374 @@
+.header {
+    width: 100%;
+    background-color: black;
+    height: 104px;
+    position: absolute;
+}
+
+
+.principal {
+    min-height: 800px;
+    margin: 0px;
+    padding: 0px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+ 
+ }.principal>article {
+    margin: 4px;
+    padding: 5px;
+    border-radius: 7pt;
+    -webkit-flex: 3 1 60%;
+    flex: 3 1 60%;
+    -webkit-order: 2;
+    order: 2;
+ 
+ }.principal>aside {
+ 
+    margin: 4px;
+    margin-top: 4px;
+    padding: 5px;
+    background:rgb(235,235,235);
+    border-radius: 7pt;
+    flex: 1 6 20%;
+    order: 3;
+    margin-top: 124px;
+ }
+ 
+ header,
+ 
+ footer {
+
+    display: block;
+    margin: 4px;
+    padding: 5px;
+    min-height: 32px;
+    border-radius: 7pt;
+ 
+ }/* Too narrow to support three columns */@media all and (max-width: 640px) {
+ 
+    .principal,
+ 
+    #page {
+ 
+        -webkit-flex-flow: column;
+        flex-flow: column;
+ 
+    }
+ 
+    #main>article,
+ 
+    .principal>nav,
+ 
+    .principal>aside {
+ 
+        /* Return them to document order */
+        -webkit-order: 0;
+        order: 0;
+ 
+    }
+ 
+    .principal>nav,
+ 
+    .principal>aside,
+ 
+    header,
+ 
+    footer {
+ 
+        min-height: 50px;
+        max-height: 50px;
+    }
+ 
+}
+
+.aside-style{
+    max-height: 1315;
+ 
+}
+
+.showElements{
+    display: inline;
+    margin-left: 108px;
+}
+
+.headForm{
+    display: inline;
+    margin-left: 103px;
+    font-family: arial;
+    font-size: larger;
+}
+.marvel-card{
+    border-radius: 7px;
+    background-color: white;
+    margin-top: 10px;
+    opacity: 0.93;
+    font-size: 19px;
+    color: white;
+    display: inline-flex;   
+    width: 451px;
+    margin-right: 22px;
+    box-shadow: 4px 4px #888888 ;
+}
+
+.marvel-img-character {
+    height: 129px;
+    width: 129px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+ 
+ }
+
+.card-columns{
+    margin-top: 66px;
+}
+
+.favourite-title{
+    text-align: center;
+    font-size: 35px;
+    color:rgb(62,52,51);
+    display: inline-flex;
+    margin-left: 30px;
+}
+
+.card-text{
+    color:rgb(163,155,155);
+}
+
+
+.card-block p {
+    width: 97%;
+    text-align: justify;
+    height: 200px;
+    margin-right: 16px;
+    max-height: 197px;
+    overflow-y: auto;
+}
+.viewMoreButton{
+    background-color: crimson;
+    color:white;
+    border-radius: 2px;
+}
+
+.marvel-card figcaption{
+    color: rgb(71,61,60);
+}
+
+
+
+/*comics*/
+
+.marvelcomicfigure{
+    height: 259px;
+    width: 266PX;
+    display: inline;
+}
+ 
+.marvelcomicfigure figure{
+    width: 90%;
+}
+
+.marvel-card-comic{
+    background-color: white;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 19px;
+    color: black;
+    display: inline-flex;
+    width: 100%;
+  
+}
+
+.button-comic-close{
+    background-image: url('/src/app/images/icons/btn-close.png');
+    background-repeat: no-repeat;
+    float: right;
+    width: 34px;
+    height: 34px;
+    border: none;
+}
+
+.button-comic-random{
+    background-image: url('/src/app/images/icons/random.png');
+    background-repeat: no-repeat;
+    float: right;
+    width: 34px;
+    height: 34px;
+    border: none;
+}
+
+.comic-modal-header{
+    height: 44px;
+}
+
+/*comic card*/
+.marvel-comic{
+    display: inline-flex;
+}
+
+.marvel-img-comic{
+    width: 145PX;
+    margin-left: 27%;
+}
+
+.comic-block-description{
+    width: 97%;
+    text-align: justify;
+    height: 200px;
+    margin-right: 16px;
+    max-height: 197px;
+    overflow-y: auto;
+}
+
+
+.marvel-comic-buttons{
+    background-color: aqua;
+    height: 56px;
+    width: 100%;
+    display: -webkit-inline-box;
+}
+
+.marvel-comic-addbutton{
+    background-color: rgb(240,240,240);
+    color:rgb(102,93,94);
+    width: 50%;
+    display: flex;
+}
+
+.marvel-comic-addbutton image{
+    width:40px;
+    vertical-align: middle;
+    
+}
+
+.marvel-comic-addbutton:hover{
+    background-color: rgb(50,40,39);
+    color :red;
+    
+}
+
+.marvel-comic-addbutton:hover #imgaddbutton{
+    src: url("/src/app/images/icons/btn-favourites-primary.png");
+}
+
+.marvel-comic-buybutton{
+    background-color: rgb(220,220,220);
+    color:red;
+    width: 50%;
+    display: flex;
+}
+
+.marvel-comic-buybutton image{
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}
+.marvel-comic-buybutton:hover{
+    background-color: rgb(50,40,39);
+}
+
+.marvel-comic-body{
+    background-color: rgb(199, 20, 20);
+    height: 213px;
+    width: 100%;
+    display: flex;
+}
+.marvel-comic-content{
+    background-color: blueviolet;
+    margin-bottom: 16px;
+}
+
+.marvel-comic-figure{
+    background-color:white;
+    width: 24%;
+    display: inline;
+    height: 100%;
+
+}
+
+.marvel-comic-general-description{
+    background-color: coral;
+    width: 76%;
+    display: inline;
+    height: 100%;
+}
+
+.marvel-comic-description-title{
+    background-color: white;
+    color: rgb(61,51,50);
+    height: 21%;
+    font-size: 22px;
+    padding-left: 15px;
+    font-weight: bold;
+    
+}
+
+.marvel-comic-description{
+    background-color: white;
+    color: rgb(89,81,79);
+    height: 79%;
+    font-size: 22px;
+    padding-left: 15px;
+}
+
+.marvel-comic-description p{
+    margin-top: 0px;
+    overflow-y: auto;
+    height: 100%;
+    text-align: justify;
+    width: 94%;
+}
+
+.comic-favourite-delete{
+    background-image: url('/src/app/images/icons/btn-delete.png');
+    background-repeat: no-repeat;
+    float: right;
+    width: 34px;
+    height: 34px;
+    border: none;
+    margin-right: 10%;
+}
+
+/***** FAVORITOS  *****/
+
+.favouriteComicTitle{
+    font-size: 21px;
+    text-align: center;
+}
+
+.favouriteContentHeader{
+    height: 24px;
+}
+
+.favouriteContentImage img{
+    margin-left: 22%;
+}
+
+.favouriteContent{
+    height: 357px;
+}
+
+
+.favourite-content{
+    overflow-y: auto;
+}
+
+
+.jw-modal-background {
+    /* modal background fixed across whole screen */
+    
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    /* semi-transparent black  */
+    background-color: #000;
+    opacity: 0.75;
+    
+    /* z-index must be below .jw-modal and above everything else  */
+    z-index: 10;
+}

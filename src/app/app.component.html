@@ -1,0 +1,131 @@
+
+<div class="header">
+    <div style="display: inline">
+            <img src="https://cdn.iconscout.com/public/images/icon/free/png-256/marvel-brand-logo-3d2fc7641d591ebe-256x256.png" alt="" style="display: inline;width: 6%;margin-left: 22px;">
+    </div> 
+    
+   <div class="headForm" style=" vertical-align: middle;">
+    <form class="my-4" style="display: inline; margin-bottom: 5%;">
+        <div class="form-group" style="display: inline;">
+            <label for="filterInput" style="color:crimson">Buscar: </label>
+            <input type="text" class="form-control" id="filterInput" name="filter" [(ngModel)]="filter" (ngModelChange)="refreshList($event)" />
+        </div>
+
+        <div class="form-group showElements">
+            <label for="countInput"  style="color:crimson" >Items Mostrados: </label>
+            <select class="form-control" id="countInput" name="count" [(ngModel)]="shown" (ngModelChange)="refreshList($event)">
+                <option *ngFor="let i of [5, 10, 15, 20]">
+                    {{i}}
+                </option>
+            </select>
+        </div>
+    </form>
+   </div>
+</div>
+
+<div class="principal">
+
+        <article>
+  
+             <h2 class="marvel-title">Resultados de búsqueda</h2>
+  
+             <div class="card-columns my-5" >
+  
+                 <div *ngFor="let character of characters" class="marvel-card" id="{{character.id}}" >
+                    <figure>
+                     <img class="marvel-img-character" src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="Imagen de personaje">
+                     <figcaption>{{character.name}}</figcaption>
+                     <button class="viewMoreButton" (click)="openModal('custom-modal-1',character.id, comics)">view more</button>
+                    </figure>
+                     <div class="card-block">
+                        
+                         <p class="card-text">{{character.description}}</p>
+  
+                     </div>
+  
+                 </div>
+  
+             </div>
+  
+        </article>      
+         <aside class="aside-style">
+            <div class="favourite-title">
+                <div> 
+                    <img src="/src/app/images/icons/btn-favourites-primary.png" alt="">
+                </div>
+                <div style="margin-left: 18px;">Mis favoritos</div>
+            </div>
+            <div class="favourite-content">
+                <div [(ngModel)]="dataStorage">
+                <div class="favouriteContent" *ngFor="let comic of dataStorage"  id="{{comic.id}}" >
+                    <div class="favouriteContentHeader">
+                        <button class="comic-favourite-delete" (click)="deleteFavourites(comic)" ></button>
+                    </div>
+                    <div class="favouriteContentImage">
+                        <img style="width: 171px; height: 243px;"  src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="">
+                    </div>
+                    <div class="favouriteComicTitle">
+                        <div>{{comic.title}}</div>
+                    </div>
+                </div>
+                </div>
+            </div>
+  
+        </aside>
+        
+</div>
+  
+<jw-modal id="custom-modal-1"  >
+    <div class="comic-modal-header">
+        <button class="button-comic-close" (click)="closeModal('custom-modal-1');"></button>
+        <button class="button-comic-random" (click)="addRandomComic()"></button>
+    </div>
+    
+   <div  [(ngModel)]="comicsLet">
+   <div class="marvel-comic-content" *ngFor="let comic of comics" id="{{comic.id}}" > 
+    <div class="marvel-comic-body">
+        <div class="marvel-comic-figure">
+            
+                <img class="marvel-img-comic" src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="Imagen de personaje">
+            
+        </div>
+        <div class="marvel-comic-general-description">
+            
+            <div class="marvel-comic-description-title">
+                {{comic.title}}
+            </div>
+            <div class="marvel-comic-description">
+                <p>                
+                        {{comic.description}}
+                </p>
+
+            </div>
+        </div>
+    </div>
+    
+    <diV class="marvel-comic-buttons">
+        <div class="marvel-comic-addbutton"  (click)="setFavourites(comic)">
+            <div>
+            <img id="imgaddbutton" style="vertical-align: middle;
+            margin-top: 7px;
+            margin-left: 20%;
+            display: inline-block;" src="/src/app/images/icons/btn-favourites-default.png" alt="">
+            </div>
+            <div style="display: inline-block;
+            margin-left: 22px;
+            margin-top: 17px;">ADD FAVOURITES</div>
+        </div>
+        <div class="marvel-comic-buybutton">
+            <div style="display: inline-block;width: 59px;">
+            <img style="margin-top: 7px;margin-left: 20%; width:40px; height:40px;display: inline-block;"src="/src/app/images/icons/shopping-cart-primary.png" alt="">
+            </div>
+            <div style="display: inline-block;margin-left: 21px;margin-top: 17px;">BUY FOR {{comic.prices[0].price}} </div>
+        </div>
+    </diV>
+   </div>
+</div>
+</jw-modal>
+<div class="jw-modal-background"></div>
+
+
+<footer>2018</footer>
