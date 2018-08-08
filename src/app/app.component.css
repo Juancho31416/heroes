@@ -34,6 +34,8 @@
     flex: 1 6 20%;
     order: 3;
     margin-top: 124px;
+    max-height: 1221px;
+    overflow-y: auto;
  }
  
  header,
